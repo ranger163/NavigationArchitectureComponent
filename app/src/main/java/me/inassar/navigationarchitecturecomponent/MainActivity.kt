@@ -9,7 +9,7 @@ import me.inassar.navigationarchitecturecomponent.dummy.DummyContent
 
 class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteractionListener {
     override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
-        findNavController(R.id.nav_host).navigate(R.id.params_dest, Bundle().apply {
+        findNavController(R.id.nav_host).navigate(R.id.action_to_params, Bundle().apply {
             putString("param1", "Selected")
             putString("param2", item.toString())
         })
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteraction
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                findNavController(R.id.nav_host).navigate(R.id.params_dest, Bundle().apply {
+                findNavController(R.id.nav_host).navigate(R.id.action_global_params, Bundle().apply {
                     putString("param1", "Android")
                     putString("param2", "Rocks")
                 })
