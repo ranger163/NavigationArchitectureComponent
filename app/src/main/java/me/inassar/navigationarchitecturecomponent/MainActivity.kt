@@ -9,9 +9,9 @@ import me.inassar.navigationarchitecturecomponent.dummy.DummyContent
 
 class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteractionListener {
     override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
-        findNavController(R.id.nav_host).navigate(R.id.action_to_params, Bundle().apply {
-            putString("param1", "Selected")
-            putString("param2", item.toString())
+        findNavController(R.id.nav_host).navigate(ListFragmentDirections.actionToParams().apply {
+            param1 = "Selected (with safeargs)"
+            param2 = item.toString()
         })
     }
 
