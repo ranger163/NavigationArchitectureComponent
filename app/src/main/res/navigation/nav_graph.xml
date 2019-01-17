@@ -15,4 +15,9 @@
         android:name="me.inassar.navigationarchitecturecomponent.ListFragment"
         android:label="fragment_item_list"
         tools:layout="@layout/fragment_item_list" />
+    <fragment android:id="@+id/params_dest" android:name="me.inassar.navigationarchitecturecomponent.ParamsFragment"
+              android:label="fragment_params" tools:layout="@layout/fragment_params">
+        <argument android:name="param1" app:argType="string" android:defaultValue="Ahmed" app:nullable="true"/>
+        <argument android:name="param2" app:argType="string" android:defaultValue="Nassar" app:nullable="true"/>
+    </fragment>
 </navigation>

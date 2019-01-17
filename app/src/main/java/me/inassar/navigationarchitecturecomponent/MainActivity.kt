@@ -3,14 +3,16 @@ package me.inassar.navigationarchitecturecomponent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import me.inassar.navigationarchitecturecomponent.dummy.DummyContent
 
 class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteractionListener {
     override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
-        Log.i("Navigation", "Selected $item")
+        findNavController(R.id.nav_host).navigate(R.id.params_dest, Bundle().apply {
+            putString("param1", "Selected")
+            putString("param2", item.toString())
+        })
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity(), ListFragment.OnListFragmentInteraction
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
+                findNavController(R.id.nav_host).navigate(R.id.params_dest, Bundle().apply {
+                    putString("param1", "Android")
+                    putString("param2", "Rocks")
+                })
                 return@OnNavigationItemSelectedListener true
             }
         }
